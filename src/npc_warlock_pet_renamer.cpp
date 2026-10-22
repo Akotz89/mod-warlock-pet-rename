@@ -58,6 +58,8 @@ private:
         }
 
         pet->SetName(name);
+        if (player->GetGroup())
+            player->SetGroupUpdateFlag(GROUP_UPDATE_FLAG_PET_NAME);
         player->CastSpell(pet, VISUAL_FEEDBACK_SPELL_ID, true);
 
         CharacterDatabasePreparedStatement* stmt = CharacterDatabase.GetPreparedStatement(CHAR_UPD_CHAR_PET_NAME);
